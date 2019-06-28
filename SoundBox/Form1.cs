@@ -27,7 +27,7 @@ namespace SoundBox {
             string[] files = Directory.GetFiles(location, "*", SearchOption.AllDirectories);
             string[] filesName = new string[files.Count()];
 
-            foreach(var f in files.Select((item, index) => new { item, index })) {
+            foreach (var f in files.Select((item, index) => new { item, index })) {
                 filesName[f.index] = Path.GetFileName(f.item);
             }
 
@@ -47,15 +47,15 @@ namespace SoundBox {
         private void playSound() {
             int i = 0;
             int stoppedNumber = -1;
-            foreach(WindowsMediaPlayer w in WMP) {
-                if(w.playState != WMPPlayState.wmppsPlaying) { //stopped
+            foreach (WindowsMediaPlayer w in WMP) {
+                if (w.playState != WMPPlayState.wmppsPlaying) { //stopped
                     stoppedNumber = i;
                     break;
                 }
                 i++;
             }
 
-            if(stoppedNumber != -1) {
+            if (stoppedNumber != -1) {
                 WMP[stoppedNumber].URL = Path.GetFullPath(location) + fileName;
                 WMP[stoppedNumber].controls.play();
             }
@@ -64,7 +64,7 @@ namespace SoundBox {
         private void Form1_KeyDown(object sender, KeyEventArgs e) {
             messageLabel.Text = e.KeyCode + "が押されました。";
 
-            if(fileName != null) {
+            if (fileName != null) {
                 playSound();
             }
         }
