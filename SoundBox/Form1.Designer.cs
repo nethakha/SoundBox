@@ -79,8 +79,8 @@
         #endregion
 
         private AxWMPLib.AxWindowsMediaPlayer axWindowsMediaPlayer1;
-        private System.Windows.Forms.ListBox Sounds;
         private System.Windows.Forms.Label messageLabel;
+        public System.Windows.Forms.ListBox Sounds;
     }
 }
 
